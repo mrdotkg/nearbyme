@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>nearby</title>
+  <link rel="stylesheet" type="text/css" href="css/yt_menu.css" />
+  <link rel="stylesheet" type="text/css" href="css/slide-panel.css" />
+  <link rel="stylesheet" type="text/css" href="css/input_text.css" />
+  <style type="text/css">
+    html { height: 100% }
+    body { height: 100%; margin: 0px; padding: 0px }
+    #container { width: 100%; height: 100% }
+    #nav  { z-index: 100; position: absolute; margin-left: 50px; padding: 5px;}
+    #nav-r{ z-index: 100; position: absolute; padding: 5px;  top: 34px; right: 50px; }
+    #map {width: 100%; height: 100% }
+    .credit{z-index: 100; position: absolute; bottom: 2px; right:50px; font-weight: 900; font-size: 130%}
+  </style>
+  <link rel="stylesheet" type="text/css" href="css/yt_menu.css" />
+
+  <script src="http://maps.google.com/maps/api/js?v=3.exp" type="text/javascript"></script>
+  <script type="text/javascript">
+
+    function initialize() {
+        var mapOptions = {
+        center: new google.maps.LatLng(40.435833800555567, -78.44189453125),
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        zoom: 15
+      };
+      var stylez = [
+        {
+          featureType: "all",
+          elementType: "all",
+          stylers: [
+            { saturation: -100 } // <-- THIS
+          ]
+        }
+      ];
+      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+      var mapType = new google.maps.StyledMapType(stylez, { name:"Grayscale" });
+      map.mapTypes.set('Grayscale', mapType);
+      map.setMapTypeId('Grayscale');
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        var geolocpoint = new google.maps.LatLng(latitude, longitude);
+        map.setCenter(geolocpoint );//line added for setting center
+
+        var marker = new google.maps.Marker({
+          position: geolocpoint,
+          map: map,
+          title: 'You are Here!!!'
+        });
+        marker.setMap(map);
+
+        var infowindow = new google.maps.InfoWindow({
+          content:"You are Here!!"
+        });
+        infowindow.open(map,marker);
+
+      });
+    }
+  </script>
+</head>
+<body onload="initialize();">
+<div id="container">
+  <div id="nav">
+    <!--<span class="input input--kyo">-->
+    <!--<input class="input__field input__field--kyo" type="text" id="input-19">-->
+    <!--<label class="input__label input__label--kyo" for="input-19">-->
+    <!--<span class="input__label-content input__label-content--kyo">What's your email?</span>-->
+    <!--</label>-->
+    <!--</span>-->
+    <nav id="dr-menu" class="dr-menu">
+      <div class="dr-trigger">
+        <span class="dr-icon dr-icon-menu"></span>
+        <a class="dr-label">nearby.me</a>
+      </div>
+      <ul>
+        <li>
+          <!--<a class="dr-icon dr-icon-user" href="#">Xavier Densmore</a>-->
+            <input id="search" class="input__field input__field--kyo" type="text" id="input-19">
+
+            <label class="input__label input__label--kyo" for="input-19">
+              <span class="input__label-content input__label-content--kyo">What are you looking for?</span>
+            </label>
+            <button
+                    style="position:absolute; float:right;right: 0; width:30%; z-index:999999;"
+                    class="input__field kyo-button"
+                    href="#">.nearby.me
+            </button>
+      <!--<span class="input input--kyo">-->
+      <!--<input class="input__field input__field--kyo" type="text" id="input-19">-->
+      <!--<label class="input__label input__label--kyo" for="input-19">-->
+        <!--<span class="input__label-content input__label-content--kyo">What you are looking for?</span>-->
+      <!--</label>-->
+      <!--</span>-->
+
+        </li>
+        <!--<li><a class="dr-icon dr-icon-camera" href="#">Videos</a></li>-->
+        <!--<li><a class="dr-icon dr-icon-heart" href="#">Favorites</a></li>-->
+        <!--<li><a class="dr-icon dr-icon-bullhorn" href="#">Subscriptions</a></li>-->
+        <!--<li><a class="dr-icon dr-icon-download" href="#">Downloads</a></li>-->
+        <!--<li><a class="dr-icon dr-icon-settings" href="#">Settings</a></li>-->
+        <!--<li><a class="dr-icon dr-icon-switch" href="#">Logout</a></li>-->
+      </ul>
+    </nav>
+  </div>
+  <div id="map"></div>
+  <div id="nav-r">
+    <!--<a href="">Filter</a>-->
+    <a href="#0" class="cd-btn">filter</a>
+  </div>
+  <div class="credit" ><a class="dr-icon dr-icon-user" href="http://measdot.github.io">k gaurav</a></div>
+
+</div>
+
+<div class="cd-panel from-right">
+  <header class="cd-panel-header">
+    <h1>Filter Categories</h1>
+    <a href="#0" class="cd-panel-close">Close</a>
+  </header>
+
+  <div class="cd-panel-container">
+    <div class="cd-panel-content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam magnam accusamus obcaecati nisi eveniet quo veniam quibusdam veritatis autem accusantium doloribus nam mollitia maxime explicabo nemo quae aspernatur impedit cupiditate dicta molestias consectetur, sint reprehenderit maiores. Tempora, exercitationem, voluptate. Sapiente modi officiis nulla sed ullam, amet placeat, illum necessitatibus, eveniet dolorum et maiores earum tempora, quas iste perspiciatis quibusdam vero accusamus veritatis. Recusandae sunt, repellat incidunt impedit tempore iusto, nostrum eaque necessitatibus sint eos omnis! Beatae, itaque, in. Vel reiciendis consequatur saepe soluta itaque aliquam praesentium, neque tempora. Voluptatibus sit, totam rerum quo ex nemo pariatur tempora voluptatem est repudiandae iusto, architecto perferendis sequi, asperiores dolores doloremque odit. Libero, ipsum fuga repellat quae numquam cumque nobis ipsa voluptates pariatur, a rerum aspernatur aliquid maxime magnam vero dolorum omnis neque fugit laboriosam eveniet veniam explicabo, similique reprehenderit at. Iusto totam vitae blanditiis. Culpa, earum modi rerum velit voluptatum voluptatibus debitis, architecto aperiam vero tempora ratione sint ullam voluptas non! Odit sequi ipsa, voluptatem ratione illo ullam quaerat qui, vel dolorum eligendi similique inventore quisquam perferendis reprehenderit quos officia! Maxime aliquam, soluta reiciendis beatae quisquam. Alias porro facilis obcaecati et id, corporis accusamus? Ab porro fuga consequatur quisquam illo quae quas tenetur.</p>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque similique, at excepturi adipisci repellat ut veritatis officia, saepe nemo soluta modi ducimus velit quam minus quis reiciendis culpa ullam quibusdam eveniet. Dolorum alias ducimus, ad, vitae delectus eligendi, possimus magni ipsam repudiandae iusto placeat repellat omnis veritatis adipisci aliquam hic ullam facere voluptatibus ratione laudantium perferendis quos ut. Beatae expedita, itaque assumenda libero voluptatem adipisci maiores voluptas accusantium, blanditiis saepe culpa laborum iusto maxime quae aperiam fugiat odit consequatur soluta hic. Sed quasi beatae quia repellendus, adipisci facilis ipsa vel, aperiam, consequatur eaque mollitia quaerat. Iusto fugit inventore eveniet velit.</p>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque similique, at excepturi adipisci repellat ut veritatis officia, saepe nemo soluta modi ducimus velit quam minus quis reiciendis culpa ullam quibusdam eveniet. Dolorum alias ducimus, ad, vitae delectus eligendi, possimus magni ipsam repudiandae iusto placeat repellat omnis veritatis adipisci aliquam hic ullam facere voluptatibus ratione laudantium perferendis quos ut. Beatae expedita, itaque assumenda libero voluptatem adipisci maiores voluptas accusantium, blanditiis saepe culpa laborum iusto maxime quae aperiam fugiat odit consequatur soluta hic. Sed quasi beatae quia repellendus, adipisci facilis ipsa vel, aperiam, consequatur eaque mollitia quaerat. Iusto fugit inventore eveniet velit.</p>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam magnam accusamus obcaecati nisi eveniet quo veniam quibusdam veritatis autem accusantium doloribus nam mollitia maxime explicabo nemo quae aspernatur impedit cupiditate dicta molestias consectetur, sint reprehenderit maiores. Tempora, exercitationem, voluptate. Sapiente modi officiis nulla sed ullam, amet placeat, illum necessitatibus, eveniet dolorum et maiores earum tempora, quas iste perspiciatis quibusdam vero accusamus veritatis. Recusandae sunt, repellat incidunt impedit tempore iusto, nostrum eaque necessitatibus sint eos omnis! Beatae, itaque, in. Vel reiciendis consequatur saepe soluta itaque aliquam praesentium, neque tempora. Voluptatibus sit, totam rerum quo ex nemo pariatur tempora voluptatem est repudiandae iusto, architecto perferendis sequi, asperiores dolores doloremque odit. Libero, ipsum fuga repellat quae numquam cumque nobis ipsa voluptates pariatur, a rerum aspernatur aliquid maxime magnam vero dolorum omnis neque fugit laboriosam eveniet veniam explicabo, similique reprehenderit at. Iusto totam vitae blanditiis. Culpa, earum modi rerum velit voluptatum voluptatibus debitis, architecto aperiam vero tempora ratione sint ullam voluptas non! Odit sequi ipsa, voluptatem ratione illo ullam quaerat qui, vel dolorum eligendi similique inventore quisquam perferendis reprehenderit quos officia! Maxime aliquam, soluta reiciendis beatae quisquam. Alias porro facilis obcaecati et id, corporis accusamus? Ab porro fuga consequatur quisquam illo quae quas tenetur.</p>
+    </div> <!-- cd-panel-content -->
+  </div> <!-- cd-panel-container -->
+</div> <!-- cd-panel -->
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+<script src="js/ytmenu.js"></script>
+
+</body>
+
+</html>
+
