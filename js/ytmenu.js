@@ -57,7 +57,7 @@ var YTMenu = (function() {
 				var keyCode = e.keyCode || e.which;
 				if (keyCode == '13'){
 					if( open ) {
-						event.stopPropagation();
+						e.stopPropagation();
 						open = false;
 						el.className = el.className.replace(/\bdr-menu-open\b/,'');
 						console.log($("#search").val());
