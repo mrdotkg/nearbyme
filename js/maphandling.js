@@ -90,7 +90,7 @@ function initializeCallback(results, status) {
         $('.cd-panel-header > h1').html( $("#search").val()+' nearby my location' );
 
         for (var i = 0; i < results.length; i++) {
-            createMarker(i+1,results[i],table,centerLatLng);
+            createMarker(i+1,results[i],t,centerLatLng);
         }
 
         //show table
