@@ -78,12 +78,13 @@ function initialize() {
 
 function initializeCallback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-        var table=$('#results').DataTable(
-            {
+        
+        if ( ! $.fn.DataTable.isDataTable( '#results' ) ) {
+            var table=$('#results').DataTable({
                 scrollX:true
-            }
-        );
-
+            });
+        }
+        
         table.clear().draw();
         var centerLatLng={lat:center.coords.latitude,lng:center.coords.longitude};
         $('.cd-panel-header > h1').html( $("#search").val()+' nearby my location' );
