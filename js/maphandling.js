@@ -78,19 +78,17 @@ function initialize() {
 
 function initializeCallback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-        
-        if ( ! $.fn.DataTable.isDataTable( '#results' ) ) {
-            var t=$('#results').DataTable({
+        var table=$('#results').DataTable({
                 scrollX:true
-            });
-        }
-        
-        t.clear().draw();
+            }
+        );
+
+        table.clear().draw();
         var centerLatLng={lat:center.coords.latitude,lng:center.coords.longitude};
         $('.cd-panel-header > h1').html( $("#search").val()+' nearby my location' );
 
         for (var i = 0; i < results.length; i++) {
-            createMarker(i+1,results[i],t,centerLatLng);
+            createMarker(i+1,results[i],table,centerLatLng);
         }
 
         //show table
@@ -133,7 +131,7 @@ function createMarker(ctr,place,table,centerLatLng) {
                     distance+='<br><i class="zmdi zmdi-car"></i>: '+distMatDriving.distance.text +' <i class="zmdi zmdi-time"></i>: '+ distMatDriving.duration.text;
 
                     //add details in row
-                    t.row.add( [ctr+' <a target="blank" href="'+hrefGetDirections+'"><i class="zmdi zmdi-arrow-split"></i></a>',place.name,place.formatted_address,distance] ).draw( false );
+                    table.row.add( [ctr+' <a target="blank" href="'+hrefGetDirections+'"><i class="zmdi zmdi-arrow-split"></i></a>',place.name,place.formatted_address,distance] ).draw( false );
                 }
             });
         }
