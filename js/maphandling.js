@@ -80,12 +80,12 @@ function initializeCallback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         
         if ( ! $.fn.DataTable.isDataTable( '#results' ) ) {
-            var table=$('#results').DataTable({
+            var t=$('#results').DataTable({
                 scrollX:true
             });
         }
         
-        table.clear().draw();
+        t.clear().draw();
         var centerLatLng={lat:center.coords.latitude,lng:center.coords.longitude};
         $('.cd-panel-header > h1').html( $("#search").val()+' nearby my location' );
 
@@ -133,7 +133,7 @@ function createMarker(ctr,place,table,centerLatLng) {
                     distance+='<br><i class="zmdi zmdi-car"></i>: '+distMatDriving.distance.text +' <i class="zmdi zmdi-time"></i>: '+ distMatDriving.duration.text;
 
                     //add details in row
-                    table.row.add( [ctr+' <a target="blank" href="'+hrefGetDirections+'"><i class="zmdi zmdi-arrow-split"></i></a>',place.name,place.formatted_address,distance] ).draw( false );
+                    t.row.add( [ctr+' <a target="blank" href="'+hrefGetDirections+'"><i class="zmdi zmdi-arrow-split"></i></a>',place.name,place.formatted_address,distance] ).draw( false );
                 }
             });
         }
