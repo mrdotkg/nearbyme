@@ -20,6 +20,7 @@ function getLocation(s,f) {
 
 function success(position) {
     center= position;
+    console.log(center);
     //var location = new google.maps.LatLng(center.coords.latitude,center.coords.longitude);
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
