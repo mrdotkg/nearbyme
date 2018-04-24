@@ -1,0 +1,64 @@
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.2);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: black;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+.globe {
+  border: 2px solid #8bc34a;
+  border-radius: 50%;
+  height: 140px;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 140px;
+}
+.globe svg {
+  -webkit-animation: rotation 5s linear 0s infinite;
+          animation: rotation 5s linear 0s infinite;
+}
+.globe svg path {
+  stroke: #8BC34A;
+}
+
+@-webkit-keyframes rotation {
+  from {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+  }
+  from {
+      -webkit-transform: translateX(-50%);
+              transform: translateX(-50%);
+  }
+}
+
+@keyframes rotation {
+  from {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+  }
+  from {
+      -webkit-transform: translateX(-50%);
+              transform: translateX(-50%);
+  }
+}
