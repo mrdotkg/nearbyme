@@ -24,7 +24,7 @@
   -ms-transform: translate(-50%,-50%);
 }
 .globe {
-  border: 2px solid #8bc34a;
+  border: 2px solid #A7000E;
   border-radius: 50%;
   height: 140px;
   left: 50%;
@@ -40,7 +40,7 @@
           animation: rotation 5s linear 0s infinite;
 }
 .globe svg path {
-  stroke: #8BC34A;
+  stroke: #A7000E;
 }
 
 @-webkit-keyframes rotation {
