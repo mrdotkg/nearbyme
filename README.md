@@ -1,6 +1,6 @@
 # nearby.me
 
-To find places Nearby you.
+To find places nearby you.
 
 Search for anything like pizza, atm, hotels etc..
 
